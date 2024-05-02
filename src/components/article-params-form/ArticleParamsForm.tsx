@@ -83,6 +83,7 @@ export const ArticleParamsForm: React.FC<ArticleParamsFormProps> = ({
 	};
 
 	useEffect(() => {
+		if (!isMenuOpen) return;
 		const handleClickOverlay = (event: MouseEvent) => {
 			if (
 				sidebarRef.current &&
@@ -155,11 +156,6 @@ export const ArticleParamsForm: React.FC<ArticleParamsFormProps> = ({
 							title='Применить'
 							type='submit'
 							onClick={handleApplyChanges}
-//Обработчик сабмита нужно навешивать только на тег form с событием submit,
-//а не на кнопку сабмита с событием click,
-//так как сабмит формы происходит ещё при нажатии Enter,
-//и он не будет работать, если навесить обработчик клика на кнопку только.
-
 						/>
 					</div>
 				</form>
